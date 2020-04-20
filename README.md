@@ -13,7 +13,7 @@ After reading Christian Riedl's [solution]([LoggerBuffered](https://stackoverflo
 Dependency injects is built out after *`Startup.ConfigureServices`* completes, so you can inject services into *`Startup.Configure`*.  
 i.e. 
 ```
- public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IMySuperDuperService msd)
+ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IMySuperDuperService msd, ILogger<Startup> logger)
  {
  
  
@@ -21,9 +21,9 @@ i.e.
 ```
 This will blowup if an **Exception** is thrown in *`Startup.ConfigureServices`* before *`IMySuperDuperService`* was registered.
 
-**IServiceProvider** will always be there, so just inject that one and ask for your *`IMySuperDuperService`*
+*`IServiceProvider`* and *`ILogger<Startup>`* will always be there, so just inject that one and ask for your *`IMySuperDuperService`*
 ```
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider, ILogger<Startup> logger)
 {
     ...
     var mySuperDuperService = serviceProvider.GetRequiredService<IMySuperDuperService>();
