@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>WebApplication_Startup_Logging</RootNamespace>
+    <UserSecretsId>bca0a421-b298-4cc2-9841-7126876485fa</UserSecretsId>
   </PropertyGroup>
 
 
