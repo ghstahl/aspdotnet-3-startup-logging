@@ -37,7 +37,8 @@ When it comes to HTTP Trigger, I didn't want to learn another way to develop an 
 
 When it comes to logging, the azure function provides the initial logger which is turned into a LogProvider for the downstream asp.net core app.
 
-Take a look at [azFunc-logger](src/azFunc-logger)
+Take a look at [azFunc-logger](src/azFunc-logger) where the shim is [dotnetcore.azFunction.AppShim](src/dotnetcore.azFunction.AppShim)  
+
 
 
 
