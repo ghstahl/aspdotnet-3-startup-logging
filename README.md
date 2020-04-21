@@ -32,6 +32,15 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IService
 
 ```
 
+# Azure Functions
+When it comes to HTTP Trigger, I didn't want to learn another way to develop an app that was basically REST apis that required bearer token authorization.  I use a technique that uses TestServer (of all things) to bridge the gap between request comming into the function and ultimately winding up being handled by a good ole asp.net core 3 app.  
+
+When it comes to logging, the azure function provides the initial logger which is turned into a LogProvider for the downstream asp.net core app.
+
+Take a look at [azFunc-logger](src/azFunc-logger)
+
+
+
 # Credits  
 [LoggerBuffered](https://stackoverflow.com/questions/41287648/how-do-i-write-logs-from-within-startup-cs/60833884#60833884)  
 [Christian Riedl](https://stackoverflow.com/users/1165242/christian-riedl)
