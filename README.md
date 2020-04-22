@@ -21,7 +21,7 @@ i.e.
 ```
 This will blowup if an **Exception** is thrown in *`Startup.ConfigureServices`* before *`IMySuperDuperService`* was registered.
 
-*`IServiceProvider`* and *`ILogger<Startup>`* will always be there, so just inject that one and ask for your *`IMySuperDuperService`*
+*`IServiceProvider`* and *`ILogger<Startup>`* will always be there, so just inject those and ask *`IServiceProvider`* for your *`IMySuperDuperService`*
 ```
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider, ILogger<Startup> logger)
 {
