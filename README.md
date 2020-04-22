@@ -6,7 +6,7 @@ ASP.NET Core 3.0 doesn't support logging in the Startup constructor or Startup.C
 After reading Christian Riedl's [solution]([LoggerBuffered](https://stackoverflow.com/questions/41287648/how-do-i-write-logs-from-within-startup-cs/60833884#60833884) on StackOverflow I adopted it.  Later you will see that it works well when I embed the asp.net webapp inside an Azure Function.  
 
 ## The Solution
-1. Create an in-memmory ILogger that buffers the logs until we can hand them over to the real ILogger.  
+1. Create an in-memory ILogger that buffers the logs until we can hand them over to the real ILogger.  
 2. Defer any exception thrown before *`Startup.Configure`* to be thrown after we copy the in-memmory log to the real ILogger.  
 3. Only inject *`IServiceProvider`* into *`Startup.Configure`* as a means to get other services.  
 
