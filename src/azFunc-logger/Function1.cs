@@ -20,7 +20,7 @@ namespace azFunc_logger
             _functionsAppShim = functionsAppShim;
         }
 
-        bool _initialized = false;
+        
         [FunctionName("Function1")]
         public async Task<HttpResponseMessage> Run(
             Microsoft.Azure.WebJobs.ExecutionContext context,
@@ -28,10 +28,10 @@ namespace azFunc_logger
             ILogger logger)
         {
             logger.LogInformation("C# HTTP trigger function processed a request.");
-            if (!_initialized)
+            if (!Globals.Initialized)
             {
                 await _functionsAppShim.Initialize(logger);
-                _initialized = true;
+                Globals.Initialized = true;
             }
             return await _functionsAppShim.Run(context, request);
         }
