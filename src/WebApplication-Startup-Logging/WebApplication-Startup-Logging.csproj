@@ -6,5 +6,9 @@
     <UserSecretsId>bca0a421-b298-4cc2-9841-7126876485fa</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
+  </ItemGroup>
+
 
 </Project>

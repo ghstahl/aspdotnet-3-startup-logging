@@ -37,7 +37,7 @@ namespace WebApplication_Startup_Logging
                 _logger.LogInformation($"ConfigureServices...");
                 services.AddControllers();
                 _logger.LogInformation($"Just gonna throw an exception now in ConfigureService");
-                throw new Exception("Ermaghd something went wrong!");
+           //     throw new Exception("Ermaghd something went wrong!");
                 // notice that IMySuperDuperService  never gets a chance to be known.  So Sad!
                 services.AddSingleton<IMySuperDuperService, MySuperDuperService>();
             }

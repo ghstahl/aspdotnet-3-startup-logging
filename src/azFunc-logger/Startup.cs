@@ -1,4 +1,5 @@
-﻿using dotnetcore.azFunction.AppShim;
+﻿using Contracts.Extensions;
+using dotnetcore.azFunction.AppShim;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,6 +14,7 @@ namespace azFunc_logger
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddHttpClient();
+            builder.Services.AddSerializer();
             var functionsAppShim = new FunctionsAppShim<WebApplication_Startup_Logging.Startup>
             {
                 LoadConfigurationsDelegate = WebApplication_Startup_Logging.Program.LoadConfigurations

@@ -13,5 +13,8 @@ namespace dotnetcore.azFunction.AppShim
         Task<HttpResponseMessage> Run(
             Microsoft.Azure.WebJobs.ExecutionContext context,
             HttpRequest request);
+ 
+        Task<HttpResponseMessage> SendAsync(Microsoft.Azure.WebJobs.ExecutionContext context,
+            HttpRequestMessage httpRequestMessage);
     }
 }
